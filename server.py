@@ -6,7 +6,7 @@ from pytube import YouTube
 
 app = Flask(__name__)
 # CORS(app)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "https://cheerful-fox-734579.netlify.app"}})
 
 
 @app.route('/download', methods=['POST'])
@@ -24,7 +24,7 @@ def process():
     print(id)
     YouTube_1=YouTube(url)
     videos= YouTube_1.streams
-    videos[int(id)].download(output_path='A:\Projects\youtube download\dowloadedVideos')
+    videos[int(id)].download()
     return 'downloaded successfully'
 
 if __name__ == '__main__':
